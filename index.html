@@ -144,9 +144,11 @@
             box-shadow: 0 14px 28px rgba(34, 158, 217, 0.35);
         }
         .telegram-button img {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             display: block;
+            border-radius: 50%;
+            flex-shrink: 0;
         }
         @media (max-width: 640px) {
             body {
@@ -168,6 +170,10 @@
                 width: 100%;
                 gap: 12px;
                 align-items: flex-start;
+            }
+            .telegram-button img {
+                width: 16px;
+                height: 16px;
             }
         }
         hr {
