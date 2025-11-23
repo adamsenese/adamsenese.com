@@ -58,6 +58,49 @@
         a:hover {
             text-decoration: none;
         }
+        .contact-card {
+            margin-top: 40px;
+            padding: 28px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #eef2ff 100%);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+        .contact-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .contact-card-content h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.3em;
+        }
+        .contact-card-content p {
+            margin: 0 0 18px 0;
+            color: #444;
+        }
+        .telegram-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: #229ED9;
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(34, 158, 217, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .telegram-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(34, 158, 217, 0.35);
+        }
         hr {
             border: 0;
             height: 1px;
@@ -87,7 +130,7 @@
         <p class="bio">I am the co-founder of <a href="https://relative.dev">Relative.dev</a>.</p>
         <h2>Links</h2>
         <ul class="links">
-            <!-- <li><a href="https://adams.bearblog.dev/">My personal blog</a></li> -->
+            <li><a href="https://t.me/adamsupdates">My personal blog on Telegram</a></li>
             <li><a href="https://www.youtube.com/@AdamSenese">My YouTube vlog</a></li>
             <!-- Add more links as needed -->
         </ul>
@@ -103,6 +146,14 @@
             <li><a href="https://hermesvoice.com">Hermes | Work 4x faster with voice-to-text</a></li>
             <!-- Add more links as needed -->
         </ul>
+        <div class="contact-card">
+            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=240&q=80" alt="Adam Senese portrait">
+            <div class="contact-card-content">
+                <h3>Connect on Telegram</h3>
+                <p>Have a project in mind or want to chat? Drop me a message on Telegram.</p>
+                <a class="telegram-button" href="https://t.me/AdamSenese" target="_blank" rel="noopener noreferrer">Message me on Telegram</a>
+            </div>
+        </div>
         <hr>
         <footer>
             <p>Adam Senese</p>
