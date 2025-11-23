@@ -59,14 +59,29 @@
             text-decoration: none;
         }
         .contact-card {
+            position: relative;
             margin-top: 40px;
-            padding: 28px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #f5f7ff 0%, #eef2ff 100%);
+            padding: 32px;
+            border-radius: 26px;
+            background: rgba(255, 255, 255, 0.12);
             display: flex;
             align-items: center;
-            gap: 24px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            gap: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 20px 45px rgba(55, 84, 170, 0.18);
+            backdrop-filter: blur(26px);
+            overflow: hidden;
+        }
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(136, 190, 255, 0.55), transparent 55%), radial-gradient(circle at bottom right, rgba(111, 82, 240, 0.35), transparent 60%);
+            z-index: 0;
+        }
+        .contact-card > * {
+            position: relative;
+            z-index: 1;
         }
         .contact-card img {
             width: 120px;
@@ -96,10 +111,15 @@
             text-decoration: none;
             box-shadow: 0 10px 20px rgba(34, 158, 217, 0.25);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            gap: 10px;
         }
         .telegram-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 14px 28px rgba(34, 158, 217, 0.35);
+        }
+        .telegram-button svg {
+            width: 18px;
+            height: 18px;
         }
         hr {
             border: 0;
@@ -147,11 +167,16 @@
             <!-- Add more links as needed -->
         </ul>
         <div class="contact-card">
-            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=240&q=80" alt="Adam Senese portrait">
+            <img src="IMG_0959_2.jpg" alt="Adam Senese portrait">
             <div class="contact-card-content">
                 <h3>Connect on Telegram</h3>
                 <p>Have a project in mind or want to chat? Drop me a message on Telegram.</p>
-                <a class="telegram-button" href="https://t.me/AdamSenese" target="_blank" rel="noopener noreferrer">Message me on Telegram</a>
+                <a class="telegram-button" href="https://t.me/AdamSenese" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path fill="#FFFFFF" d="M120 0C53.726 0 0 53.726 0 120s53.726 120 120 120 120-53.726 120-120S186.274 0 120 0Zm55.602 77.343c-1.787 57.462-30.601 98.304-84.176 104.008-15.436-1.343-21.875-9.364-24.258-19.114L63.28 141.8l90.58-57.022c4.143-2.586-.908-4.051-6.437-1.463l-111.544 51.629-3.577-11.31c19.043-12.262 76.225-47.817 116.894-68.72 27.61-14.197 53.208-6.952 46.606 22.429Z"/>
+                    </svg>
+                    Message me on Telegram
+                </a>
             </div>
         </div>
         <hr>
