@@ -1,3 +1,3 @@
-Build your own minimal Linktree alternative on GitHub Pages – open-source, zero bloat, just clean links for creators and devs.
+# adamsenese.com
 
-Inspired by nat.org and linktr.ee
+A minimal about card floating over a WebGL relic — an obsidian monolith recovered from somewhere far in the future. Single self-contained `index.html`, no dependencies, hosted on GitHub Pages.
