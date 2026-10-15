@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <script
   defer
   data-website-id="dfid_oiqgFcVBhEReTvrQfYLwf"
@@ -38,8 +38,8 @@
         -webkit-font-smoothing: antialiased;
         background-color: #000000;
         background-image:
-            radial-gradient(circle, rgba(255, 255, 255, 0.09) 1.2px, transparent 1.4px),
-            radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1.2px);
+            radial-gradient(circle, rgba(255, 255, 255, 0.07) 1.2px, transparent 1.4px),
+            radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1.2px);
         background-size: 120px 120px, 24px 24px;
         background-position: 12px 12px, 12px 12px;
         background-attachment: fixed;
@@ -63,31 +63,36 @@
     .mark {
         display: flex;
         align-items: center;
-        gap: 9px;
-        font-size: 0.82rem;
+        gap: 10px;
+        font-family: var(--serif);
+        font-variant: small-caps;
+        font-size: 0.95rem;
         font-weight: 600;
-        letter-spacing: 0.01em;
+        letter-spacing: 0.1em;
         color: var(--ink);
     }
     .mark img { width: 15px; height: 15px; display: block; }
     nav { display: flex; gap: clamp(16px, 3vw, 30px); }
     nav a {
-        font-size: 0.8rem;
+        font-family: var(--serif);
+        font-variant: small-caps;
+        font-size: 0.95rem;
         font-weight: 500;
-        letter-spacing: 0.01em;
+        letter-spacing: 0.08em;
         color: var(--dim);
         transition: color 0.2s ease;
     }
-    nav a:hover, nav a.active { color: var(--ruby); }
+    nav a:hover { color: var(--ink); }
+    nav a.active { color: var(--ruby); }
 
     /* ---- bento grid ---- */
     .grid {
         max-width: 540px;
         margin: 0 auto;
-        padding: 84px clamp(20px, 4vw, 32px) 36px;
+        padding: 96px clamp(20px, 4vw, 32px) 44px;
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 36px;
     }
     .tile { position: relative; }
 
@@ -99,10 +104,10 @@
         padding-top: 18px;
     }
     .sticker {
-        width: 76px;
-        height: 76px;
-        margin-bottom: 20px;
-        filter: drop-shadow(0 8px 24px rgba(255, 45, 85, 0.35));
+        width: 64px;
+        height: 64px;
+        margin-bottom: 22px;
+        filter: drop-shadow(0 8px 26px rgba(255, 45, 85, 0.22));
     }
 
 
@@ -116,7 +121,7 @@
         line-height: 1.05;
     }
     .rule {
-        width: 44px;
+        width: 36px;
         height: 2px;
         background: var(--ruby);
         margin: 0 0 12px;
@@ -130,18 +135,13 @@
     .tagline a:hover, .content a:hover { border-color: var(--ruby); }
     /* ---- section tiles ---- */
     h2 {
-        display: flex;
-        align-items: center;
-        margin: 0 0 12px;
-        font-size: 0.95rem;
+        margin: 0 0 14px;
+        font-family: var(--serif);
+        font-variant: small-caps;
+        font-size: 1.05rem;
         font-weight: 600;
-        letter-spacing: 0.01em;
-    }
-    h2::before {
-        content: "\25C6";
-        color: var(--ruby);
-        font-size: 0.5em;
-        margin-right: 11px;
+        letter-spacing: 0.12em;
+        color: var(--ink);
     }
     p {
         margin: 0 0 10px;
@@ -160,32 +160,18 @@
     }
     .timeline li {
         position: relative;
-        padding: 0 0 12px 24px;
+        padding: 0 0 14px 20px;
     }
     .timeline li:last-child { padding-bottom: 2px; }
-    .timeline li::before {
-        content: "";
-        position: absolute;
-        left: -3.5px;
-        top: 7px;
-        width: 6px;
-        height: 6px;
-        background: #000000;
-        border: 1.5px solid var(--ruby);
-        transform: rotate(45deg);
-        transition: background 0.25s ease;
-    }
-    .timeline li:hover::before { background: var(--ruby); }
     .timeline .year {
         display: block;
-        font-size: 0.78rem;
-        font-weight: 600;
-        letter-spacing: 0.01em;
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 0.95rem;
+        font-weight: 500;
         color: var(--dim);
         margin-bottom: 2px;
-        transition: color 0.25s ease;
     }
-    .timeline li:hover .year { color: var(--ruby); }
     .timeline p { margin: 0; font-size: 0.92rem; }
 
     /* ---- thoughts ---- */
@@ -226,7 +212,9 @@
     .posts li:hover a { color: var(--ruby); }
     .posts li:hover a::after { opacity: 1; transform: none; }
     .posts .soon span:last-child {
-        font-size: 0.92rem;
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 0.95rem;
         color: var(--faint);
     }
 
@@ -237,8 +225,10 @@
         justify-content: center;
         gap: 14px;
         padding: 0;
-        font-size: 0.72rem;
-        letter-spacing: 0.02em;
+        font-family: var(--serif);
+        font-variant: small-caps;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
         color: var(--faint);
     }
     .t-meta img { width: 11px; height: 11px; display: block; opacity: 0.8; }
@@ -266,7 +256,7 @@
 <body>
     <header>
         <a class="mark" href="#top" aria-label="Adam Senese — home">
-            <img src="ruby.svg" alt="">
+            <img src="ruby.svg?v=2" alt="">
             <span>Adam Senese</span>
         </a>
         <nav>
@@ -279,7 +269,7 @@
     <main id="top" class="grid">
 
         <div class="tile t-id reveal">
-            <img class="sticker" src="ruby.svg" alt="Ruby mark" width="76" height="76">
+            <img class="sticker" src="ruby.svg?v=2" alt="Ruby mark" width="76" height="76">
             <h1>Adam Senese</h1>
             <div class="rule" aria-hidden="true"></div>
             <p class="tagline">Designer &amp; builder. Co-founder of <a href="https://relative.dev">Relative.dev</a>.</p>
@@ -334,7 +324,7 @@
 
         <div class="tile t-meta reveal">
             <span>© <span id="yr">2026</span> Adam Senese</span>
-            <a href="#top" aria-label="Back to top"><img src="ruby.svg" alt=""></a>
+            <a href="#top" aria-label="Back to top"><img src="ruby.svg?v=2" alt=""></a>
         </div>
 
     </main>
