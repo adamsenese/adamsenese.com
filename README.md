@@ -1,3 +1,3 @@
 # adamsenese.com
 
-A minimal about card floating over a WebGL relic — an obsidian monolith recovered from somewhere far in the future. Single self-contained `index.html`, no dependencies, hosted on GitHub Pages.
+Personal bio page — a single self-contained `index.html` on a black dot-grid background: the ruby sticker mark, name, about, history, and a thoughts list ready for future posts. No dependencies, hosted on GitHub Pages.

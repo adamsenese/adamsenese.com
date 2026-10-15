@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Adam Senese — co-founder of Relative.dev.">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Adam Senese — co-founder of Relative.dev. Bio, history, and thoughts.">
+    <meta name="theme-color" content="#000000">
     <title>Adam Senese</title>
     <link rel="icon" type="image/svg+xml" href="ruby.svg">
     <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&display=swap" rel="stylesheet">
 <script
   defer
   data-website-id="dfid_oiqgFcVBhEReTvrQfYLwf"
@@ -20,102 +20,323 @@
 </script>
 <style>
     :root {
-        --ink: #15191b;
+        --ink: #f2f5f5;
+        --body-c: #c3cacd;
         --dim: #8a9296;
-        --hud: #aab2b6;
-        --ruby: #d90429;
+        --faint: #5c6366;
+        --hair: rgba(255, 255, 255, 0.14);
+        --ruby: #ff2d55;
+        --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --serif: 'EB Garamond', Georgia, serif;
     }
     * { box-sizing: border-box; }
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
-    }
+    html { scroll-behavior: smooth; }
+    html, body { margin: 0; padding: 0; }
     body {
-        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        font-family: var(--sans);
         color: var(--ink);
         -webkit-font-smoothing: antialiased;
-        background-color: #ffffff;
+        background-color: #000000;
         background-image:
-            radial-gradient(circle, rgba(21, 25, 27, 0.1) 1.2px, transparent 1.4px),
-            radial-gradient(circle, rgba(21, 25, 27, 0.055) 1px, transparent 1.2px);
+            radial-gradient(circle, rgba(255, 255, 255, 0.09) 1.2px, transparent 1.4px),
+            radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1.2px);
         background-size: 120px 120px, 24px 24px;
         background-position: 12px 12px, 12px 12px;
+        background-attachment: fixed;
     }
-    ::selection { background: rgba(217, 4, 41, 0.14); color: #7c0217; }
+    ::selection { background: rgba(255, 45, 85, 0.3); color: #ffffff; }
+    a { color: var(--ruby); text-decoration: none; }
 
-    main {
-        min-height: 100dvh;
+    /* ---- header ---- */
+    header {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px clamp(20px, 4vw, 40px);
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+    .mark {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: var(--ink);
+    }
+    .mark img { width: 15px; height: 15px; display: block; }
+    nav { display: flex; gap: clamp(16px, 3vw, 30px); }
+    nav a {
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        color: var(--dim);
+        transition: color 0.2s ease;
+    }
+    nav a:hover, nav a.active { color: var(--ruby); }
+
+    /* ---- bento grid ---- */
+    .grid {
+        max-width: 540px;
+        margin: 0 auto;
+        padding: 84px clamp(20px, 4vw, 32px) 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .tile { position: relative; }
+
+    .t-id {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 0;
-        padding: 24px;
+        text-align: center;
+        padding-top: 18px;
     }
-    .stage {
-        width: min(74vmin, 480px);
-        aspect-ratio: 1 / 1;
-        position: relative;
+    .sticker {
+        width: 76px;
+        height: 76px;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 8px 24px rgba(255, 45, 85, 0.35));
     }
-    canvas#gem {
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
+
+
+    /* ---- identity tile ---- */
     h1 {
-        margin: 10px 0 20px;
-        font-size: clamp(1.5rem, 3.4vw, 2.1rem);
-        font-weight: 600;
-        letter-spacing: 0.26em;
-        text-transform: uppercase;
-        color: var(--ink);
-        white-space: nowrap;
-        text-indent: 0.26em;
+        margin: 0 0 10px;
+        font-family: var(--serif);
+        font-size: clamp(2.3rem, 4vw, 2.9rem);
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        line-height: 1.05;
     }
     .rule {
         width: 44px;
         height: 2px;
         background: var(--ruby);
-        margin: 0 0 20px;
+        margin: 0 0 12px;
     }
-    .line {
+    .tagline {
         margin: 0;
-        font-size: 0.8rem;
-        font-weight: 400;
-        letter-spacing: 0.12em;
+        font-size: 0.95rem;
+        color: var(--body-c);
+    }
+    .tagline a, .content a { border-bottom: 1px solid rgba(217, 4, 41, 0.3); }
+    .tagline a:hover, .content a:hover { border-color: var(--ruby); }
+    /* ---- section tiles ---- */
+    h2 {
+        display: flex;
+        align-items: center;
+        margin: 0 0 12px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+    }
+    h2::before {
+        content: "\25C6";
+        color: var(--ruby);
+        font-size: 0.5em;
+        margin-right: 11px;
+    }
+    p {
+        margin: 0 0 10px;
+        font-size: 0.92rem;
+        line-height: 1.7;
+        color: var(--body-c);
+    }
+    p:last-child { margin-bottom: 0; }
+
+    /* ---- history timeline ---- */
+    .timeline {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-left: 1px solid var(--hair);
+    }
+    .timeline li {
+        position: relative;
+        padding: 0 0 12px 24px;
+    }
+    .timeline li:last-child { padding-bottom: 2px; }
+    .timeline li::before {
+        content: "";
+        position: absolute;
+        left: -3.5px;
+        top: 7px;
+        width: 6px;
+        height: 6px;
+        background: #000000;
+        border: 1.5px solid var(--ruby);
+        transform: rotate(45deg);
+        transition: background 0.25s ease;
+    }
+    .timeline li:hover::before { background: var(--ruby); }
+    .timeline .year {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: var(--dim);
+        margin-bottom: 2px;
+        transition: color 0.25s ease;
+    }
+    .timeline li:hover .year { color: var(--ruby); }
+    .timeline p { margin: 0; font-size: 0.92rem; }
+
+    /* ---- thoughts ---- */
+    .posts {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .posts li {
+        display: flex;
+        align-items: baseline;
+        gap: 18px;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--hair);
+    }
+    .posts li:first-child { border-top: 1px solid var(--hair); }
+    .posts .date {
+        flex: none;
+        width: 76px;
+        font-size: 0.78rem;
         color: var(--dim);
     }
-    .line a {
+    .posts a {
+        font-size: 0.92rem;
+        color: var(--ink);
+        transition: color 0.2s ease;
+    }
+    .posts a::after {
+        content: "\2197";
+        display: inline-block;
+        margin-left: 8px;
+        font-size: 0.8em;
         color: var(--ruby);
-        text-decoration: none;
-        border-bottom: 1px solid rgba(217, 4, 41, 0.25);
-        transition: border-color 0.2s ease;
+        opacity: 0;
+        transform: translate(-4px, 3px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
     }
-    .line a:hover { border-color: var(--ruby); }
-
-    main > * { opacity: 0; animation: rise 1s cubic-bezier(0.2, 0.6, 0.2, 1) forwards; }
-    main > *:nth-child(1) { animation-delay: 0.1s; }
-    main > *:nth-child(2) { animation-delay: 0.35s; }
-    main > *:nth-child(3) { animation-delay: 0.5s; }
-    main > *:nth-child(4) { animation-delay: 0.62s; }
-    @keyframes rise {
-        from { opacity: 0; transform: translateY(10px); }
-        to   { opacity: 1; transform: none; }
+    .posts li:hover a { color: var(--ruby); }
+    .posts li:hover a::after { opacity: 1; transform: none; }
+    .posts .soon span:last-child {
+        font-size: 0.92rem;
+        color: var(--faint);
     }
 
+    /* ---- meta strip ---- */
+    .t-meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 0;
+        font-size: 0.72rem;
+        letter-spacing: 0.02em;
+        color: var(--faint);
+    }
+    .t-meta img { width: 11px; height: 11px; display: block; opacity: 0.8; }
+
+    /* ---- reveal ---- */
+    .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.7s cubic-bezier(0.2, 0.6, 0.2, 1),
+                    transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---- responsive ---- */
+    @media (max-width: 560px) {
+        .mark span { display: none; }
+        .grid { padding-top: 72px; gap: 26px; }
+    }
     @media (prefers-reduced-motion: reduce) {
-        main > * { animation: none; opacity: 1; }
+        html { scroll-behavior: auto; }
+        .reveal { opacity: 1; transform: none; transition: none; }
     }
 </style>
 </head>
 <body>
-    <main>
-        <div class="stage"><canvas id="gem" aria-hidden="true"></canvas></div>
-        <h1>Adam Senese</h1>
-        <div class="rule" aria-hidden="true"></div>
-        <p class="line">Co-founder of <a href="https://relative.dev">Relative.dev</a></p>
+    <header>
+        <a class="mark" href="#top" aria-label="Adam Senese — home">
+            <img src="ruby.svg" alt="">
+            <span>Adam Senese</span>
+        </a>
+        <nav>
+            <a href="#about">about</a>
+            <a href="#history">history</a>
+            <a href="#thoughts">thoughts</a>
+        </nav>
+    </header>
+
+    <main id="top" class="grid">
+
+        <div class="tile t-id reveal">
+            <img class="sticker" src="ruby.svg" alt="Ruby mark" width="76" height="76">
+            <h1>Adam Senese</h1>
+            <div class="rule" aria-hidden="true"></div>
+            <p class="tagline">Designer &amp; builder. Co-founder of <a href="https://relative.dev">Relative.dev</a>.</p>
+        </div>
+
+        <section id="about" class="tile t-about content reveal">
+            <h2>About</h2>
+            <p>
+                User experience designer by trade. I use the latest
+                technology to build great products.
+            </p>
+        </section>
+
+        <section id="history" class="tile t-history content reveal">
+            <h2>History</h2>
+            <ul class="timeline">
+                <li>
+                    <span class="year">Now</span>
+                    <p>Building <a href="https://relative.dev">Relative.dev</a>.</p>
+                </li>
+                <li>
+                    <span class="year">Pampered Chef</span>
+                    <p>User Experience.</p>
+                </li>
+                <li>
+                    <span class="year">VSA Partners</span>
+                    <p>User Experience.</p>
+                </li>
+                <li>
+                    <span class="year">Techstars</span>
+                    <p>Design Associate.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="thoughts" class="tile t-thoughts content reveal">
+            <h2>Thoughts</h2>
+            <p>Occasional writing on design, technology, and building.</p>
+            <ul class="posts">
+                <!-- Add a post by copying this block above the "soon" row:
+                <li>
+                    <span class="date">2026-10</span>
+                    <a href="https://link-to-your-post">Title of the post</a>
+                </li>
+                -->
+                <li class="soon">
+                    <span class="date">Soon</span>
+                    <span>The first one is still being cut.</span>
+                </li>
+            </ul>
+        </section>
+
+        <div class="tile t-meta reveal">
+            <span>© <span id="yr">2026</span> Adam Senese</span>
+            <a href="#top" aria-label="Back to top"><img src="ruby.svg" alt=""></a>
+        </div>
+
     </main>
 
 <script>
@@ -123,300 +344,52 @@
     'use strict';
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    var RUBY = '#d90429';
-    var HUD = 'rgba(21, 25, 27, 0.34)';
-    var HUD_SOFT = 'rgba(21, 25, 27, 0.18)';
+    /* ---- staggered tile reveal ---- */
 
-    var canvas = document.getElementById('gem');
-    var ctx = canvas.getContext('2d');
-    var cw = 0, ch = 0;
-
-    function resize() {
-        var rect = canvas.getBoundingClientRect();
-        var dpr = Math.min(window.devicePixelRatio || 1, 2);
-        cw = rect.width;
-        ch = rect.height;
-        canvas.width = Math.round(cw * dpr);
-        canvas.height = Math.round(ch * dpr);
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    /* ---- round brilliant: table ring, girdle ring, culet ---- */
-
-    var V = [], E = [], i;
-    for (i = 0; i < 8; i++) {
-        var a = (2 * i + 1) * Math.PI / 8;
-        V.push([Math.cos(a) * 0.52, 0.46, Math.sin(a) * 0.52]);
-    }
-    for (i = 0; i < 16; i++) {
-        var b = i * Math.PI / 8;
-        V.push([Math.cos(b), 0.02, Math.sin(b)]);
-    }
-    V.push([0, -0.98, 0]);
-    for (i = 0; i < 8; i++) E.push([i, (i + 1) % 8]);
-    for (i = 0; i < 16; i++) E.push([8 + i, 8 + (i + 1) % 16]);
-    for (i = 0; i < 8; i++) { E.push([i, 8 + (2 * i) % 16]); E.push([i, 8 + (2 * i + 2) % 16]); }
-    for (i = 0; i < 8; i++) E.push([8 + 2 * i, 24]);
-
-    /* boiling-line jitter, re-rolled a few times a second */
-    var offs = E.map(function () { return [0, 0, 0, 0]; });
-    function reRoll() {
-        for (var k = 0; k < offs.length; k++) {
-            offs[k] = [
-                (Math.random() - 0.5) * 2.6, (Math.random() - 0.5) * 2.6,
-                (Math.random() - 0.5) * 2.6, (Math.random() - 0.5) * 2.6
-            ];
-        }
-    }
-    if (!reduced) { reRoll(); setInterval(reRoll, 150); }
-
-    function rotv(v, yaw, pitch) {
-        var x = v[0], y = v[1], z = v[2];
-        var c = Math.cos(yaw), s = Math.sin(yaw);
-        var x1 = x * c + z * s, z1 = -x * s + z * c;
-        var cp = Math.cos(pitch), sp = Math.sin(pitch);
-        var y2 = y * cp - z1 * sp, z2 = y * sp + z1 * cp;
-        return [x1, y2, z2];
+    var tiles = document.querySelectorAll('.reveal');
+    tiles.forEach(function (el, idx) {
+        el.style.transitionDelay = (idx * 0.08) + 's';
+    });
+    if ('IntersectionObserver' in window && !reduced) {
+        var ro = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (en.isIntersecting) { en.target.classList.add('in'); ro.unobserve(en.target); }
+            });
+        }, { threshold: 0.12 });
+        tiles.forEach(function (el) { ro.observe(el); });
+    } else {
+        tiles.forEach(function (el) { el.classList.add('in'); });
     }
 
-    var D = 3.4, F = 2.9;
+    /* ---- active nav link ---- */
 
-    function sketchStroke(x0, y0, x1, y1, off, color, alpha, width) {
-        var dx = x1 - x0, dy = y1 - y0;
-        var len = Math.sqrt(dx * dx + dy * dy) || 1;
-        var ux = dx / len, uy = dy / len;
-        var ov = 2.5;
-        x0 -= ux * ov; y0 -= uy * ov;
-        x1 += ux * ov; y1 += uy * ov;
-        var mx1 = x0 + dx * 0.33 + off[0], my1 = y0 + dy * 0.33 + off[1];
-        var mx2 = x0 + dx * 0.66 + off[2], my2 = y0 + dy * 0.66 + off[3];
-        ctx.globalAlpha = alpha;
-        ctx.strokeStyle = color;
-        ctx.lineWidth = width;
-        ctx.beginPath();
-        ctx.moveTo(x0, y0);
-        ctx.lineTo(mx1, my1);
-        ctx.lineTo(mx2, my2);
-        ctx.lineTo(x1, y1);
-        ctx.stroke();
-        ctx.globalAlpha = alpha * 0.28;
-        ctx.lineWidth = Math.max(width - 0.6, 0.7);
-        ctx.beginPath();
-        ctx.moveTo(x0 + 1.4, y0 - 1);
-        ctx.lineTo(mx1 + 1.4, my1 - 1);
-        ctx.lineTo(mx2 + 1.4, my2 - 1);
-        ctx.lineTo(x1 + 1.4, y1 - 1);
-        ctx.stroke();
-        ctx.globalAlpha = 1;
-    }
-
-    function dimTick(x, y) {
-        ctx.beginPath();
-        ctx.moveTo(x - 3.5, y + 3.5);
-        ctx.lineTo(x + 3.5, y - 3.5);
-        ctx.stroke();
-    }
-
-    var sparkleAt = 2.2, sparkleV = 0;
-    var simTime = 0;
-    var last = performance.now();
-
-    function frame(now) {
-        var dt = Math.min((now - last) / 1000, 0.1);
-        last = now;
-        if (!reduced) simTime += dt;
-
-        var s = reduced ? 0.9 : simTime;
-        var yaw = s * 0.55 + 0.4;
-        var pitch = 0.2 + (reduced ? 0 : Math.sin(s * 0.5) * 0.04);
-        var bob = reduced ? 0 : Math.sin(s * 1.3) * ch * 0.012;
-        var cx = cw / 2, cy = ch * 0.45 + bob;
-        var R = Math.min(cw, ch) * 0.28;
-
-        ctx.clearRect(0, 0, cw, ch);
-        ctx.lineCap = 'round';
-        ctx.lineJoin = 'round';
-
-        /* project */
-        var P = [], k, minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9;
-        var pMinX, pMaxX, pMinY, pMaxY;
-        for (k = 0; k < V.length; k++) {
-            var r = rotv(V[k], yaw, pitch);
-            var sc = F / (D - r[2]);
-            var px = cx + r[0] * sc * R;
-            var py = cy - r[1] * sc * R;
-            P.push([px, py, r[2]]);
-            if (px < minX) { minX = px; pMinX = P[k]; }
-            if (px > maxX) { maxX = px; pMaxX = P[k]; }
-            if (py < minY) { minY = py; pMinY = P[k]; }
-            if (py > maxY) { maxY = py; pMaxY = P[k]; }
-        }
-
-        /* registration marks */
-        ctx.strokeStyle = HUD_SOFT;
-        ctx.lineWidth = 1;
-        var m = 6, L = 11;
-        [[m, m, 1, 1], [cw - m, m, -1, 1], [m, ch - m, 1, -1], [cw - m, ch - m, -1, -1]].forEach(function (c) {
-            ctx.beginPath();
-            ctx.moveTo(c[0] + c[2] * L, c[1]);
-            ctx.lineTo(c[0], c[1]);
-            ctx.lineTo(c[0], c[1] + c[3] * L);
-            ctx.stroke();
-        });
-
-        /* ground ring: dashed orbit + ticks + scanner dot */
-        var ringY = -1.3, ringR = 1.18;
-        function ringPt(a2) {
-            var rr = rotv([Math.cos(a2) * ringR, ringY, Math.sin(a2) * ringR], 0, pitch);
-            var sc2 = F / (D - rr[2]);
-            return [cx + rr[0] * sc2 * R, cy - rr[1] * sc2 * R];
-        }
-        ctx.strokeStyle = HUD;
-        ctx.setLineDash([5, 7]);
-        ctx.lineDashOffset = reduced ? 0 : -s * 14;
-        ctx.beginPath();
-        for (k = 0; k <= 72; k++) {
-            var p0 = ringPt(k / 72 * Math.PI * 2);
-            if (k === 0) ctx.moveTo(p0[0], p0[1]); else ctx.lineTo(p0[0], p0[1]);
-        }
-        ctx.stroke();
-        ctx.setLineDash([]);
-        var spin = reduced ? 0 : s * 0.3;
-        for (k = 0; k < 12; k++) {
-            var ta = k / 12 * Math.PI * 2 + spin;
-            var t0 = rotv([Math.cos(ta) * (ringR - 0.07), ringY, Math.sin(ta) * (ringR - 0.07)], 0, pitch);
-            var t1 = rotv([Math.cos(ta) * (ringR + 0.07), ringY, Math.sin(ta) * (ringR + 0.07)], 0, pitch);
-            var s0 = F / (D - t0[2]), s1 = F / (D - t1[2]);
-            ctx.beginPath();
-            ctx.moveTo(cx + t0[0] * s0 * R, cy - t0[1] * s0 * R);
-            ctx.lineTo(cx + t1[0] * s1 * R, cy - t1[1] * s1 * R);
-            ctx.stroke();
-        }
-        if (!reduced) {
-            var sa = s * 0.9;
-            var sd = ringPt(sa);
-            ctx.fillStyle = RUBY;
-            ctx.beginPath();
-            ctx.arc(sd[0], sd[1], 2.6, 0, Math.PI * 2);
-            ctx.fill();
-        }
-
-        /* soft shadow, anchored to the ring plane */
-        var shc = rotv([0, ringY, 0], 0, pitch);
-        var shs = F / (D - shc[2]);
-        var shx = cx, shy = cy - shc[1] * shs * R;
-        var shr = R * 0.55;
-        var g = ctx.createRadialGradient(shx, shy, 0, shx, shy, shr);
-        g.addColorStop(0, 'rgba(21,25,27,0.08)');
-        g.addColorStop(1, 'rgba(21,25,27,0)');
-        ctx.fillStyle = g;
-        ctx.save();
-        ctx.translate(shx, shy);
-        ctx.scale(1, Math.sin(pitch) + 0.1);
-        ctx.beginPath();
-        ctx.arc(0, 0, shr, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-
-        /* dimension callouts */
-        ctx.strokeStyle = HUD;
-        ctx.fillStyle = 'rgba(21,25,27,0.5)';
-        ctx.lineWidth = 1;
-        ctx.font = '400 9px "IBM Plex Mono", monospace';
-        var yD = Math.round(minY - 20) + 0.5;
-        ctx.beginPath(); ctx.moveTo(minX, pMinX[1] - 6); ctx.lineTo(minX, yD - 4); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(maxX, pMaxX[1] - 6); ctx.lineTo(maxX, yD - 4); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(minX, yD); ctx.lineTo(maxX, yD); ctx.stroke();
-        dimTick(minX, yD); dimTick(maxX, yD);
-        ctx.textAlign = 'center';
-        ctx.fillText('⌀ ' + ((maxX - minX) / R * 5.2).toFixed(1), (minX + maxX) / 2, yD - 5);
-        var xD = Math.round(maxX + 24) + 0.5;
-        ctx.beginPath(); ctx.moveTo(pMinY[0] + 8, minY); ctx.lineTo(xD + 4, minY); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(pMaxY[0] + 8, maxY); ctx.lineTo(xD + 4, maxY); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(xD, minY); ctx.lineTo(xD, maxY); ctx.stroke();
-        dimTick(xD, minY); dimTick(xD, maxY);
-        ctx.save();
-        ctx.translate(xD + 10, (minY + maxY) / 2);
-        ctx.rotate(-Math.PI / 2);
-        ctx.fillText(((maxY - minY) / R * 5.2).toFixed(1), 0, 0);
-        ctx.restore();
-
-        /* axis gizmo, rotating with the gem */
-        var gx = 30, gy = ch - 30;
-        var axes = [[1, 0, 0, 'x'], [0, 1, 0, 'y'], [0, 0, 1, 'z']];
-        ctx.font = '400 8px "IBM Plex Mono", monospace';
-        for (k = 0; k < 3; k++) {
-            var ar = rotv(axes[k], yaw, pitch);
-            var ex = gx + ar[0] * 16, ey = gy - ar[1] * 16;
-            ctx.strokeStyle = k === 2 ? RUBY : HUD;
-            ctx.globalAlpha = k === 2 ? 0.8 : 1;
-            ctx.beginPath(); ctx.moveTo(gx, gy); ctx.lineTo(ex, ey); ctx.stroke();
-            ctx.globalAlpha = 1;
-            ctx.fillStyle = 'rgba(21,25,27,0.45)';
-            ctx.fillText(axes[k][3], ex + (ar[0] >= 0 ? 3 : -7), ey + 3);
-        }
-
-        /* readouts */
-        ctx.textAlign = 'right';
-        ctx.font = '400 9px "IBM Plex Mono", monospace';
-        ctx.fillStyle = 'rgba(21,25,27,0.45)';
-        var deg = ((yaw * 180 / Math.PI) % 360 + 360) % 360;
-        ctx.fillText('YAW ' + deg.toFixed(1) + '°', cw - 8, ch - 30);
-        ctx.fillText('PITCH ' + (pitch * 180 / Math.PI).toFixed(1) + '°', cw - 8, ch - 18);
-        ctx.textAlign = 'left';
-        ctx.fillText('FIG. 01', 8, 16);
-        ctx.fillStyle = 'rgba(21,25,27,0.3)';
-        ctx.fillText('ROUND BRILLIANT', 8, 28);
-
-        /* vertex markers on front-facing girdle points */
-        ctx.fillStyle = 'rgba(21,25,27,0.35)';
-        for (k = 8; k < 24; k++) {
-            if (P[k][2] > 0.25) {
-                ctx.beginPath();
-                ctx.arc(P[k][0], P[k][1], 1.3, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        /* the ruby, sketched */
-        for (k = 0; k < E.length; k++) {
-            var e = E[k];
-            var A = P[e[0]], B = P[e[1]];
-            var zAvg = (A[2] + B[2]) / 2;
-            var tN = Math.max(0, Math.min(1, (zAvg + 0.45) / 0.9));
-            var alpha = 0.16 + 0.74 * tN;
-            sketchStroke(A[0], A[1], B[0], B[1], offs[k], RUBY, alpha, 1.6);
-        }
-
-        /* occasional glint */
-        if (!reduced) {
-            if (s > sparkleAt) { sparkleAt = s + 2.2 + Math.random() * 2.5; sparkleV = Math.floor(Math.random() * 8); }
-            var dts = sparkleAt - s;
-            if (dts > 0 && dts < 2.2 && (sparkleAt - s) > 1.8) {
-                var sp2 = P[sparkleV];
-                var fade = Math.sin((2.2 - dts) / 0.4 * Math.PI);
-                if (sp2 && sp2[2] > 0 && fade > 0) {
-                    ctx.strokeStyle = RUBY;
-                    ctx.globalAlpha = fade * 0.9;
-                    ctx.lineWidth = 1.2;
-                    var sl = 5 + fade * 4;
-                    ctx.beginPath();
-                    ctx.moveTo(sp2[0] - sl, sp2[1]); ctx.lineTo(sp2[0] + sl, sp2[1]);
-                    ctx.moveTo(sp2[0], sp2[1] - sl); ctx.lineTo(sp2[0], sp2[1] + sl);
-                    ctx.stroke();
-                    ctx.globalAlpha = 1;
+    var navLinks = document.querySelectorAll('nav a');
+    var secById = {};
+    navLinks.forEach(function (ln) {
+        var id = ln.getAttribute('href').slice(1);
+        var sec = document.getElementById(id);
+        if (sec) secById[id] = ln;
+    });
+    if ('IntersectionObserver' in window) {
+        var no = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                var ln = secById[en.target.id];
+                if (!ln) return;
+                if (en.isIntersecting) {
+                    navLinks.forEach(function (l) { l.classList.remove('active'); });
+                    ln.classList.add('active');
                 }
-            }
-        }
-
-        requestAnimationFrame(frame);
+            });
+        }, { rootMargin: '-30% 0px -40% 0px' });
+        Object.keys(secById).forEach(function (id) { no.observe(document.getElementById(id)); });
     }
-    requestAnimationFrame(frame);
+
+    document.getElementById('yr').textContent = String(new Date().getFullYear());
 
     try {
-        console.log('%c◆', 'color:#d90429;font-size:18px;');
+        console.log('%c◆ %cb. July 1991 — the stone is no accident.',
+            'color:#d90429;font-size:16px;',
+            'color:#8a9296;font-family:monospace;font-size:11px;');
     } catch (e) {}
 })();
 </script>
